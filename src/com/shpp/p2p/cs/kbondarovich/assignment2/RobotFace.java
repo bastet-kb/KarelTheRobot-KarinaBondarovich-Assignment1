@@ -1,13 +1,12 @@
 package com.shpp.p2p.cs.kbondarovich.assignment2;
 
-import acm.graphics.GFillable;
 import acm.graphics.GOval;
 import acm.graphics.GRect;
 import com.shpp.cs.a.graphics.WindowProgram;
 
 import java.awt.*;
 
-public class Assignment2Part7 extends WindowProgram {
+public class RobotFace extends WindowProgram {
     // Constants for the robot head size
     private static final double HEAD_WIDTH = 350;
     private static final double HEAD_HEIGHT = 250;
@@ -27,14 +26,14 @@ public class Assignment2Part7 extends WindowProgram {
         // This method creates a rectangle
         // With the indicated parameters it draws a head and a mouth.
         // The parameters center the face against the application and indicate the head size.
-        add(createRectangle(centerX - HEAD_WIDTH / 2,
-                            centerY - HEAD_HEIGHT / 2,
-                            HEAD_WIDTH, HEAD_HEIGHT));
+        add(createRectangle(Color.LIGHT_GRAY, centerX - HEAD_WIDTH / 2,
+                                              centerY - HEAD_HEIGHT / 2,
+                                            HEAD_WIDTH, HEAD_HEIGHT));
         // The parameters center the mouth against the head width and allocate it to the
         // lower 1/4 of the face and indicate the mouth size.
-        add(createRectangle(centerX - MOUTH_WIDTH / 2,
-                            centerY + HEAD_HEIGHT / 4,
-                            MOUTH_WIDTH, MOUTH_HEIGHT));
+        add(createRectangle(Color.GRAY, centerX - MOUTH_WIDTH / 2,
+                                        centerY + HEAD_HEIGHT / 4,
+                                        MOUTH_WIDTH, MOUTH_HEIGHT));
 
         // As the eyes are allocated at 1/4 of both x and y - calculate 1/4 of the head size.
         double centerEyeX = HEAD_WIDTH / 4;
@@ -51,9 +50,11 @@ public class Assignment2Part7 extends WindowProgram {
     }
 
     //This method draws a rectangle with the indicated parameters (pos - x, y; size w and h)
-    private GRect createRectangle(double x, double y, double w, double h) {
+    private GRect createRectangle(Color color,double x, double y, double w, double h) {
         GRect res = new GRect(x, y, w, h);
         res.setColor(Color.BLACK);
+        res.setFillColor(color);
+        res.setFilled(true);
         return res;
     }
 
@@ -61,6 +62,8 @@ public class Assignment2Part7 extends WindowProgram {
     private GOval drawEye(double x, double y, double d) {
         GOval res = new GOval(x, y, d, d);
         res.setColor(Color.BLACK);
+        res.setFillColor(Color.DARK_GRAY);
+        res.setFilled(true);
         return res;
     }
 }

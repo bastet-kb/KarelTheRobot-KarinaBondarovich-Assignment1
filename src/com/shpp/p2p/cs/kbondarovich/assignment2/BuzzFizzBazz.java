@@ -2,7 +2,7 @@ package com.shpp.p2p.cs.kbondarovich.assignment2;
 
 import com.shpp.cs.a.console.ConsoleProgram;
 
-public class Assignment2Part8 extends ConsoleProgram {
+public class BuzzFizzBazz extends ConsoleProgram {
 
     public void run() {
         // Ask the user to enter a number
